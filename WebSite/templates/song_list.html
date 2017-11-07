@@ -1,16 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <title>Song List</title>
+  <!-- Navbar css -->
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 </head>
 
 <body>
+  <!-- <nav class="nav">
+    <section class="header"><img class="logo" src="https://s-media-cache-ak0.pinimg.com/236x/d4/66/51/d46651296e23c328f5bd46ac527fb04e.jpg" />
+      <h2 class="title">English WebSite</h2>
+      <div id="toggle"><span></span><span></span><span></span></div>
+    </section>
+    <ul id="menu">
+      <li><a class="link" href="{% url 'home' %}">Home</a></li>
+      <li><a class="link" href="#">Listening</a></li>
+      <li><a class="link" href="#">Servicio</a></li>
+      <li><a class="link" href="#">Productos</a></li>
+      <li><a class="link" href="#">Nosotros</a></li>
+    </ul>
+  </nav> -->
   <section class="song">
     {% for song in song_list %}
     <section class="song-title">
-      <a href="{% url 'individualSong' song.pk}">{{ song.name }}</a>
+      <a href="{% url 'individualSong' song.pk %}">{{ song.name }}</a>
     </section>
     {% endfor %}
   </section>

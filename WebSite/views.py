@@ -1,3 +1,4 @@
+from string import Template
 from django.shortcuts import render, redirect
 from django.http import Http404
 from .forms import *
@@ -49,10 +50,27 @@ def individualSong(request, id):
             current_song = Song.objects.get(pk = id)
         except Song.DoesNotExist:
             raise Http404("Página no encontrada")
-        context = { 'current_song' : current_song}
+        song_letter_html = ""
+        indx = 0
+        i = 0
+        while i < len(current_song.letter):
+             if current_song.letter[i] == '{':
+                 song_letter_html += "<input type=\"text\" name=\""+ str(indx) + "\" required>"
+                 indx += 1
+                 i += 2
+             else:
+                 song_letter_html += current_song.letter[i]
+             i+=1
+        context = { 'song' : current_song, 'song_letter' : song_letter_html}
         return render(request, 'individual_song.html', context)
     else:
         current_song = Song.objects.get(pk = id)
         complete_options = Option.objects.filter( song = current_song )
-        print (len(complete_options))
+        i = 0
+        correct = 0
+        while i < 10:
+            if request.POST[str(i)].lower() == complete_options[i].text.lower():
+                correct += 1
+            i+=1
+        print ("Las correctas son: " + str(correct))
         return render(request, 'home.html')

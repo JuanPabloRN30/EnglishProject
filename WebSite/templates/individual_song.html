@@ -14,8 +14,8 @@
     <section class="song-video">
       <iframe width="854" height="480" src="{{ song.url_video }}" frameborder="0" gesture="media" allowfullscreen></iframe>
     </section>
-    <form class="song-letter" action="{% url 'song' song.pk }" method="post">
-      {{ song.letter }}
+    <form class="song-letter" action="{% url 'individualSong' song.pk %}" method="post">
+      {% csrf_token %} {{ song_letter|safe }} <br>
       <input type="submit" value="Evaluar">
     </form>
   </section>

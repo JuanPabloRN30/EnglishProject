@@ -14,12 +14,19 @@ class MyUser(models.Model):
     def __str__(self):
         return self.user.username
 
+@python_2_unicode_compatible
 class Song(models.Model):
     url_video = models.CharField(max_length=500)
     letter = models.TextField()
     name = models.CharField(max_length=500)
+    def __str__(self):
+        return self.name
 
+@python_2_unicode_compatible
 class Option(models.Model):
     text = models.CharField(max_length=200)
     correct = models.NullBooleanField()
     song = models.ForeignKey(Song, on_delete = models.CASCADE)
+
+    def __str__(self):
+        return "Option from: " + self.song.name
