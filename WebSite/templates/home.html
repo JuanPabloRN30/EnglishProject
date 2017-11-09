@@ -21,7 +21,7 @@
     <ul id="menu">
       <li><a class="link" href="{% url 'home' %}">Home</a></li>
       <li><a class="link" href="{% url 'songList' %}">Listening</a></li>
-      <li><a class="link" href="#">Writing</a></li>
+      <li><a class="link" href="{% url 'chat' %}">Writing</a></li>
       <li><a class="link" href="#">Reading</a></li>
     </ul>
   </nav>
@@ -30,7 +30,7 @@
       <section class="insta-header-data">
         <section class="insta-info">
           <h1 class="insta-username">Totoro</h1>
-          <button class="insta-logout-button"><a href="{% url 'index' %}">Log Out</a></button>
+          <button class="insta-logout-button"><a href="{% url 'logout' %}">Log Out</a></button>
         </section>
         <section class="insta-follows">
           <p><span class="insta-indicator">12</span>publicaciones</p>

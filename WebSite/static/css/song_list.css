@@ -1,0 +1,45 @@
+.songs {
+
+}
+
+.song {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #888;
+  transition: all 0.3s ease;
+}
+
+.song:hover {
+  background: #ddd;
+}
+
+.song-title, .song-author, .song-duration {
+  margin: 0.3em;
+}
+
+.song-title::before {
+  content: 'Titulo:';
+  margin-right: 10px;
+  display: inline;
+  font-weight: bold;
+}
+
+.song-author::before {
+  content: 'Artista:';
+  margin-right: 10px;
+  display: inline;
+  font-weight: bold;
+}
+
+.song-duration::before {
+  content: 'Duración:';
+  margin-right: 10px;
+  display: inline;
+  font-weight: bold;
+}

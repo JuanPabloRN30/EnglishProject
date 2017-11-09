@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway");
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -19,7 +18,6 @@ body {
           flex-direction: column;
   min-height: 100vh;
   background: #FAFAFA;
-  font-family: 'Raleway', sans-serif;
 }
 
 .insta {
@@ -114,6 +112,7 @@ body {
 }
 
 .insta-logout-button a{
+  text-decoration: none;
   color: inherit;
-  text-decoration: inherit;
+  cursor: pointer;
 }

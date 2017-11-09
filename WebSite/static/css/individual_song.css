@@ -1,0 +1,39 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.song {
+  width: 60vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.song-video {
+  width: 100%;
+  padding-bottom: 57%;
+  position: relative;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.song-video iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.song .song-letter {
+  padding: 16px;
+
+}
+
+input[type='submit'] {
+  margin: 16px;
+  text-align: center;
+}

@@ -10,5 +10,5 @@ urlpatterns = [
     url(r'^home/$', views.home, name = 'home'),
     url(r'^song/$', views.songList, name = 'songList'),
     url(r'^song/(?P<id>[0-9]+)/$', views.individualSong, name = 'individualSong'),
-    url(r'^letter/$', views.letter, name = 'letter'),
+    url(r'^chat/$', views.chatWriting, name = 'chat'),
 ]

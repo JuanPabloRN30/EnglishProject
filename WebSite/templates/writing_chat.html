@@ -4,18 +4,19 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Song List</title>
-  <link rel="stylesheet" href="{% static 'css/song_list.css' %}">
-  <!-- Navbar css -->
+  <title>Chat Rooms</title>
   <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/chat.css' %}" type="text/css" media="screen" />
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="{% static 'js/navbar.js' %}"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js"></script>
+  <script src="{% static 'js/chat.js' %}"></script>
 </head>
 
 <body>
   <nav class="nav">
     <section class="header"><img class="logo" src="https://s-media-cache-ak0.pinimg.com/236x/d4/66/51/d46651296e23c328f5bd46ac527fb04e.jpg" />
-      <h2 class="title">Listening</h2>
+      <h2 class="title">Writing - Chat</h2>
       <div id="toggle"><span></span><span></span><span></span></div>
     </section>
     <ul id="menu">
@@ -25,16 +26,18 @@
       <li><a class="link" href="#">Reading</a></li>
     </ul>
   </nav>
-  <section class="songs">
-    {% for song in song_list %}
-    <a class="song" href="{% url 'individualSong' song.pk %}">
-      <p class="song-title">{{ song.name }}</p>
-      <p class="song-author">{{ song.name }}</p>
-      <p class="song-duration">{{ song.name }}</p>
-    </a>
-    {% endfor %}
-  </section>
-  </section>
+  <ul class="rooms">
+      {% for room in rooms %}
+          <li class="room-link" data-room-id="{{ room.id }}">{{ room }}</li>
+      {% empty %}
+          <p class="empty">No chat rooms defined.</p>
+      {% endfor %}
+  </ul>
+  <div id="chats">
+  </div>
+  <footer>
+    Frontend development by Juan Manuel Sánchez Lozano - <a href="https://codepen.io/jonny-dev/">Codepen</a> - <a href="https://github.com/juanmsl">Github</a>
+  </footer>
 </body>
 
 </html>
