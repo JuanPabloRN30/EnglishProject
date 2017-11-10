@@ -3,7 +3,9 @@ from .models import *
 
 admin.site.register(MyUser)
 admin.site.register(Song)
-admin.site.register(Option)
+admin.site.register(OptionSong)
+admin.site.register(Lecture)
+admin.site.register(OptionLecture)
 
 admin.site.register(
     Room,

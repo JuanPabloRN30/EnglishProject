@@ -110,9 +110,3 @@ body {
 .insta .insta-picture-data span {
   padding: 10px;
 }
-
-.insta-logout-button a{
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}

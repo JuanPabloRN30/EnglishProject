@@ -22,65 +22,29 @@
       <li><a class="link" href="{% url 'home' %}">Home</a></li>
       <li><a class="link" href="{% url 'songList' %}">Listening</a></li>
       <li><a class="link" href="{% url 'chat' %}">Writing</a></li>
-      <li><a class="link" href="#">Reading</a></li>
+      <li><a class="link" href="{% url 'reading' %}">Reading</a></li>
+      <li><a class="link" href="{% url 'logout' %}">Log Out</a></li>
     </ul>
   </nav>
   <section class="insta">
     <section class="insta-header"><img class="insta-photo-profile" src="https://cdn.dribbble.com/users/259149/screenshots/2487219/totoro-sticker.png" />
       <section class="insta-header-data">
         <section class="insta-info">
-          <h1 class="insta-username">Totoro</h1>
-          <button class="insta-logout-button"><a href="{% url 'logout' %}">Log Out</a></button>
+          <h1 class="insta-username">{{user.username}}</h1>
         </section>
         <section class="insta-follows">
-          <p><span class="insta-indicator">12</span>publicaciones</p>
-          <p><span class="insta-indicator">23</span>seguidores</p>
-          <p><span class="insta-indicator">30</span>seguidos</p>
-        </section>
-      </section>
-    </section>
-    <section class="insta-gallery">
-      <section class="insta-picture-container"><img class="insta-picture" src="http://via.placeholder.com/300x300" />
-        <section class="insta-picture-data"><span><i class="fa fa-heart-o"></i><span>12k</span></span><span><i class="fa fa-comment"></i><span>123k</span></span>
-        </section>
-      </section>
-      <section class="insta-picture-container"><img class="insta-picture" src="http://via.placeholder.com/300x300" />
-        <section class="insta-picture-data"><span><i class="fa fa-heart-o"></i><span>12k</span></span><span><i class="fa fa-comment"></i><span>123k</span></span>
-        </section>
-      </section>
-      <section class="insta-picture-container"><img class="insta-picture" src="http://via.placeholder.com/300x300" />
-        <section class="insta-picture-data"><span><i class="fa fa-heart-o"></i><span>12k</span></span><span><i class="fa fa-comment"></i><span>123k</span></span>
-        </section>
-      </section>
-      <section class="insta-picture-container"><img class="insta-picture" src="http://via.placeholder.com/300x300" />
-        <section class="insta-picture-data"><span><i class="fa fa-heart-o"></i><span>12k</span></span><span><i class="fa fa-comment"></i><span>123k</span></span>
-        </section>
-      </section>
-      <section class="insta-picture-container"><img class="insta-picture" src="http://via.placeholder.com/300x300" />
-        <section class="insta-picture-data"><span><i class="fa fa-heart-o"></i><span>12k</span></span><span><i class="fa fa-comment"></i><span>123k</span></span>
-        </section>
-      </section>
-      <section class="insta-picture-container"><img class="insta-picture" src="http://via.placeholder.com/300x300" />
-        <section class="insta-picture-data"><span><i class="fa fa-heart-o"></i><span>12k</span></span><span><i class="fa fa-comment"></i><span>123k</span></span>
-        </section>
-      </section>
-      <section class="insta-picture-container"><img class="insta-picture" src="http://via.placeholder.com/300x300" />
-        <section class="insta-picture-data"><span><i class="fa fa-heart-o"></i><span>12k</span></span><span><i class="fa fa-comment"></i><span>123k</span></span>
-        </section>
-      </section>
-      <section class="insta-picture-container"><img class="insta-picture" src="http://via.placeholder.com/300x300" />
-        <section class="insta-picture-data"><span><i class="fa fa-heart-o"></i><span>12k</span></span><span><i class="fa fa-comment"></i><span>123k</span></span>
-        </section>
-      </section>
-      <section class="insta-picture-container"><img class="insta-picture" src="http://via.placeholder.com/300x300" />
-        <section class="insta-picture-data"><span><i class="fa fa-heart-o"></i><span>12k</span></span><span><i class="fa fa-comment"></i><span>123k</span></span>
+          <p><span class="insta-indicator">12</span>Listening</p>
+          <p><span class="insta-indicator">23</span>Writing</p>
+          <p><span class="insta-indicator">30</span>Reading</p>
         </section>
       </section>
     </section>
   </section>
+  <footer>
+    Frontend development by Juan Manuel Sánchez Lozano - <a href="https://codepen.io/jonny-dev/">Codepen</a> - <a href="https://github.com/juanmsl">Github</a>
+  </footer>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
   <script src="{% static 'js/navbar.js' %}"></script>
-
 </body>
 
 </html>

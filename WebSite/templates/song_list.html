@@ -21,8 +21,9 @@
     <ul id="menu">
       <li><a class="link" href="{% url 'home' %}">Home</a></li>
       <li><a class="link" href="{% url 'songList' %}">Listening</a></li>
-      <li><a class="link" href="#">Writing</a></li>
-      <li><a class="link" href="#">Reading</a></li>
+      <li><a class="link" href="{% url 'chat' %}">Writing</a></li>
+      <li><a class="link" href="{% url 'reading' %}">Reading</a></li>
+      <li><a class="link" href="{% url 'logout' %}">Log Out</a></li>
     </ul>
   </nav>
   <section class="songs">
@@ -35,6 +36,9 @@
     {% endfor %}
   </section>
   </section>
+  <footer>
+    Frontend development by Juan Manuel Sánchez Lozano - <a href="https://codepen.io/jonny-dev/">Codepen</a> - <a href="https://github.com/juanmsl">Github</a>
+  </footer>
 </body>
 
 </html>

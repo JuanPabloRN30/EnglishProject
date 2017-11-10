@@ -1,3 +1,4 @@
+# coding=utf-8
 from string import Template
 from django.shortcuts import render, redirect
 from django.http import Http404
@@ -28,7 +29,8 @@ def index(request):
 
 def home(request):
     if request.user.is_authenticated:
-        return render(request,'home.html')
+        context = { 'user' : request.user }
+        return render(request,'home.html', context)
     else:
         return redirect('login')
 
@@ -63,7 +65,7 @@ def individualSong(request, id):
             return render(request, 'individual_song.html', context)
         else:
             current_song = Song.objects.get(pk = id)
-            complete_options = Option.objects.filter( song = current_song )
+            complete_options = OptionSong.objects.filter( song = current_song )
             i = 0
             correct = 0
             while i < len(complete_options):
@@ -80,5 +82,36 @@ def chatWriting(request):
         rooms = Room.objects.order_by("title")
         context = { 'rooms' : rooms }
         return render(request, "writing_chat.html", context)
+    else:
+        return redirect('login')
+
+def readingList(request):
+    if request.user.is_authenticated:
+        if request.method == 'GET': #and request.user.is_authenticated:
+            lista_reading = Lecture.objects.all()
+            context = { 'reading_list' : lista_reading }
+            return render(request, 'reading_list.html', context)
+    return redirect('login')
+
+def individualReading(request, id):
+    if request.user.is_authenticated:
+        if request.method == 'GET':
+            try:
+                current_lecture = Lecture.objects.get(pk = id)
+            except Song.DoesNotExist:
+                raise Http404("Página no encontrada")
+            context = { 'lecture' : current_lecture }
+            return render(request, 'individual_lecture.html', context)
+        else:
+            current_lecture = Lecture.objects.get(pk = id)
+            complete_options = OptionLecture.objects.filter( lecture = current_lecture )
+            if( request.POST['lecture'] == complete_options[0].text and complete_options[0].correct):
+                print ("Correcta")
+            else:
+                if( request.POST['lecture'] == complete_options[1].text and complete_options[1].correct):
+                    print ("Correcta")
+                else:
+                    print ("Incorrecta")
+            return render(request, 'home.html')
     else:
         return redirect('login')

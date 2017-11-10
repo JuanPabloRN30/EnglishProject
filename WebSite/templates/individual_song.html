@@ -14,14 +14,15 @@
 <body>
   <nav class="nav">
     <section class="header"><img class="logo" src="https://s-media-cache-ak0.pinimg.com/236x/d4/66/51/d46651296e23c328f5bd46ac527fb04e.jpg" />
-      <h2 class="title">{{ song.name }}</h2>
+      <h2 class="title">{{song.name}}</h2>
       <div id="toggle"><span></span><span></span><span></span></div>
     </section>
     <ul id="menu">
       <li><a class="link" href="{% url 'home' %}">Home</a></li>
       <li><a class="link" href="{% url 'songList' %}">Listening</a></li>
-      <li><a class="link" href="#">Writing</a></li>
-      <li><a class="link" href="#">Reading</a></li>
+      <li><a class="link" href="{% url 'chat' %}">Writing</a></li>
+      <li><a class="link" href="{% url 'reading' %}">Reading</a></li>
+      <li><a class="link" href="{% url 'logout' %}">Log Out</a></li>
     </ul>
   </nav>
   <section class="song">

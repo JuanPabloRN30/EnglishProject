@@ -11,4 +11,6 @@ urlpatterns = [
     url(r'^song/$', views.songList, name = 'songList'),
     url(r'^song/(?P<id>[0-9]+)/$', views.individualSong, name = 'individualSong'),
     url(r'^chat/$', views.chatWriting, name = 'chat'),
+    url(r'^reading/$', views.readingList, name = 'reading'),
+    url(r'^reading/(?P<id>[0-9]+)/$', views.individualReading, name = 'individualReading'),
 ]

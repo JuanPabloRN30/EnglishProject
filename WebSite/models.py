@@ -25,14 +25,26 @@ class Song(models.Model):
         return self.name
 
 @python_2_unicode_compatible
-class Option(models.Model):
+class OptionSong(models.Model):
     text = models.CharField(max_length=200)
     correct = models.NullBooleanField()
     song = models.ForeignKey(Song, on_delete = models.CASCADE)
-
     def __str__(self):
         return "Option from: " + self.song.name
 
+@python_2_unicode_compatible
+class Lecture(models.Model):
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+    def __str__(self):
+        return str(self.pk)
+
+class OptionLecture(models.Model):
+    text = models.CharField(max_length=200)
+    correct = models.NullBooleanField()
+    lecture = models.ForeignKey(Lecture, on_delete = models.CASCADE)
+    def __str__(self):
+        return "Option from: " + self.lecture.title
 
 @python_2_unicode_compatible
 class Room(models.Model):
