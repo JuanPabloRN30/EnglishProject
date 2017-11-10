@@ -37,6 +37,11 @@
   <footer>
     Frontend development by Juan Manuel Sánchez Lozano - <a href="https://codepen.io/jonny-dev/">Codepen</a> - <a href="https://github.com/juanmsl">Github</a>
   </footer>
+  {% if message_result != None %}
+    <script type="text/javascript">
+      alert('The number of correct answers are: ' + {{message_result}});
+    </script>
+  {% endif %}
 </body>
 
 

@@ -64,16 +64,35 @@ def individualSong(request, id):
             context = { 'song' : current_song, 'song_letter' : song_letter_html}
             return render(request, 'individual_song.html', context)
         else:
-            current_song = Song.objects.get(pk = id)
+            try:
+                current_song = Song.objects.get(pk = id)
+            except Song.DoesNotExist:
+                raise Http404("Página no encontrada")
             complete_options = OptionSong.objects.filter( song = current_song )
             i = 0
             correct = 0
+            position_correct = set()
             while i < len(complete_options):
                 if request.POST[str(i)].lower() == complete_options[i].text.lower():
                     correct += 1
+                    position_correct.add(i)
                 i+=1
-            print ("Las correctas son: " + str(correct))
-            return render(request, 'home.html')
+            song_letter_html = ""
+            indx = 0
+            i = 0
+            while i < len(current_song.letter):
+                 if current_song.letter[i] == '{':
+                     if indx in position_correct:
+                         song_letter_html += "<input type=\"text\" name=\""+ str(indx) + "\" value=\"" + complete_options[indx].text +"\" readonly=\"readonly\">"
+                     else:
+                         song_letter_html += "<input type=\"text\" name=\""+ str(indx) + "\" required>"
+                     indx += 1
+                     i += 2
+                 else:
+                     song_letter_html += current_song.letter[i]
+                 i+=1
+            context = { 'message_result' : correct, 'song' : current_song, 'song_letter':song_letter_html }
+            return render(request, 'individual_song.html', context)
     else:
         return redirect('login')
 
@@ -105,13 +124,15 @@ def individualReading(request, id):
         else:
             current_lecture = Lecture.objects.get(pk = id)
             complete_options = OptionLecture.objects.filter( lecture = current_lecture )
+            message_result = ""
             if( request.POST['lecture'] == complete_options[0].text and complete_options[0].correct):
-                print ("Correcta")
+                message_result = "Correct"
             else:
                 if( request.POST['lecture'] == complete_options[1].text and complete_options[1].correct):
-                    print ("Correcta")
+                    message_result = "Correct"
                 else:
-                    print ("Incorrecta")
-            return render(request, 'home.html')
+                    message_result = "Incorrect"
+            context = { 'lecture' : current_lecture, 'message_result' : message_result }
+            return render(request, 'individual_lecture.html', context)
     else:
         return redirect('login')

@@ -21,6 +21,8 @@ class Song(models.Model):
     url_video = models.CharField(max_length=500)
     letter = models.TextField()
     name = models.CharField(max_length=500)
+    artist = models.CharField(max_length=100, default = "")
+    duration = models.CharField(max_length=100, default = "")
     def __str__(self):
         return self.name
 

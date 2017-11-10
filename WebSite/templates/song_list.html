@@ -30,11 +30,10 @@
     {% for song in song_list %}
     <a class="song" href="{% url 'individualSong' song.pk %}">
       <p class="song-title">{{ song.name }}</p>
-      <p class="song-author">{{ song.name }}</p>
-      <p class="song-duration">{{ song.name }}</p>
+      <p class="song-author">{{ song.artist }}</p>
+      <p class="song-duration">{{ song.duration }}</p>
     </a>
     {% endfor %}
-  </section>
   </section>
   <footer>
     Frontend development by Juan Manuel Sánchez Lozano - <a href="https://codepen.io/jonny-dev/">Codepen</a> - <a href="https://github.com/juanmsl">Github</a>

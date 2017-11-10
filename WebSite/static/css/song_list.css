@@ -24,21 +24,21 @@
 }
 
 .song-title::before {
-  content: 'Titulo:';
+  content: 'Title:';
   margin-right: 10px;
   display: inline;
   font-weight: bold;
 }
 
 .song-author::before {
-  content: 'Artista:';
+  content: 'Artist:';
   margin-right: 10px;
   display: inline;
   font-weight: bold;
 }
 
 .song-duration::before {
-  content: 'Duración:';
+  content: 'Duration:';
   margin-right: 10px;
   display: inline;
   font-weight: bold;

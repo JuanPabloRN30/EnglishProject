@@ -39,6 +39,10 @@
     font-weight: bold;
 }
 
+#chats .body {
+    margin-left: 10px;
+}
+
 #chats .contextual-message {
     text-align: center;
     margin: 5px 5px 5px 5px;
